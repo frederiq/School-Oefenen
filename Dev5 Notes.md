@@ -268,3 +268,55 @@ using (var db = new MovieContext())
     Console.WriteLine("Title changed");
 }
 ```
+
+To set up the controller, these functions can be set up within a Controller.cs file.
+
+For this, you'll need corect routing.
+Routing can be set up within [Route("")] tags:
+
+```csharp
+namespace lesson3.Controllers
+{
+    //This is the default route of the API.
+    [Route("api/[controller]")]
+    public class ValuesController : Controller
+    {
+        // GET api/values
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+
+        }
+    }
+}
+```
+
+Not gonna add code about React/View, since there's no way I can properly explain that.
